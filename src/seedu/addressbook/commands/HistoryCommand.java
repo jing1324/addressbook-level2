@@ -1,25 +1,24 @@
 package seedu.addressbook.commands;
 
-import seedu.addressbook.data.person.ReadOnlyPerson;
+import seedu.addressbook.Main;
 
-import java.util.List;
 
 
 /**
- * Lists all persons in the address book to the user.
+ * Lists all previously entered commands.
  */
 public class HistoryCommand extends Command {
 
     public static final String COMMAND_WORD = "history";
 
+
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Displays all persons in the address book as a list with index numbers.\n"
+            + ": Displays all previously entered commands as a list of commands.\n"
             + "Example: " + COMMAND_WORD;
 
 
     @Override
     public CommandResult execute() {
-        List<ReadOnlyPerson> allPersons = addressBook.getAllPersons().immutableListView();
-        return new CommandResult(getMessageForPersonListShownSummary(allPersons), allPersons);
+        return new CommandResult(Main.History.toString());
     }
 }

@@ -1,5 +1,6 @@
 package seedu.addressbook;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -7,6 +8,7 @@ import java.util.Optional;
 import seedu.addressbook.commands.Command;
 import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.commands.ExitCommand;
+import seedu.addressbook.commands.HistoryCommand;
 import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 import seedu.addressbook.parser.Parser;
@@ -28,6 +30,7 @@ public class Main {
     private TextUi ui;
     private StorageFile storage;
     private AddressBook addressBook;
+    public static ArrayList<String> History = new ArrayList<>();
 
     /** The list of person shown to the user most recently.  */
     private List<? extends ReadOnlyPerson> lastShownList = Collections.emptyList();
@@ -87,6 +90,7 @@ public class Main {
             CommandResult result = executeCommand(command);
             recordResult(result);
             ui.showResultToUser(result);
+            History.add(userCommandText);
 
         } while (!ExitCommand.isExit(command));
     }
