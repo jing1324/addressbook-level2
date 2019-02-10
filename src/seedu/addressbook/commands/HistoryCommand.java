@@ -16,7 +16,6 @@ public class HistoryCommand extends Command {
             + ": Displays all previously entered commands as a list of commands.\n"
             + "Example: " + COMMAND_WORD;
 
-
     @Override
     public CommandResult execute() {
         return new CommandResult(Main.History.toString());

@@ -1,9 +1,29 @@
+###########################################################
+# history command before any input
 ##########################################################
+
+    # should show empty list
+    history
+
+#########################################################
 # invalid command
 ##########################################################
 
   # should recognise invalid command
   sfdfd
+
+#########################################################
+# history command
+##########################################################
+    # should invalid commands
+    history
+
+    # shows other commands
+    list
+    clear
+    history
+
+
 
 ##########################################################
 # commands using list index before any listing created
